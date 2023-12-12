@@ -19,8 +19,7 @@ rot_earth = 2*pi/(60*60*24); % angular speed of earth (rad/sec)
 
 %% Graphing
 
-t = 0:.01:100; % These are temporary for working on the graphing feature
+t = 0:.01:100;
 x = cos(t);
-y = sin(t);
-z = .1*sin(t+(pi/4));
-
+y=sin(t);
+z

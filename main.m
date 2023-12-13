@@ -40,8 +40,9 @@ options = odeset('RelTol',1e-5);
 
 %time
 N = 2^14;
-dt = 1000/N;
-time = 0:dt:1000;
+total_time = 100000;
+dt = total_time/N;
+time = 0:dt:total_time;
 
 %Solve
 [t,u] = ode45(@focP,time,u0,options);
@@ -49,8 +50,8 @@ time = 0:dt:1000;
 %Unload
 x = u(:,1);
 y = u(:,2);
-vx = u(:,3);
-vy = u(:,4);
+%vx = u(:,3);
+%vy = u(:,4);
 
 
 %% Graphing
@@ -61,7 +62,7 @@ close all;
 % time_watching = 100;
 % % t = 0:dt:time_watching;
 
-M = 2*length(t);
+M = .5*length(t);
 tau = t(end)/M;
 te = tau*(0:M-1);
 xe = interp1(t, u(:,1), te, 'spline', 'extrap');
@@ -75,17 +76,19 @@ ye = interp1(t, u(:,2), te, 'spline','extrap');
 %z = L*(1-cos(theta));
 z=zeros(size(xe))+.5;
 
-figure; % plot the path traced by the pendulum
+figure(1); % plot the path traced by the pendulum
 plot(xe,ye,'b-')
 xlabel("X")
 ylabel("Y")
+xlim([-1.5 1.5])
+ylim([-1.5 1.5])
 title("Path traced by pendulum")
 grid on;
 
 %Keep getting error, wondering if the issues is z
 
-figure;
 for k = 1:length(t) % animation for the pendulum swinging
+    figure(2)
     plot3([0,xe(k)],[0,ye(k)],[L,z(k)], xe(k),ye(k),z(k), 'square')
     xlim([-2,2])
     ylim([-2 2])

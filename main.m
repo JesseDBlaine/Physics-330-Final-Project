@@ -11,8 +11,8 @@ close all;
 % vx0 = 0; % initial x velocity (m/s)
 % y0 = 0; % initial y position (m)
 % vy0 = 0; % initial y velocity (m/s)
-% g = -9.8; % gravity (m/s^2)
-% L = 100; % length of pendulum string (m)
+g = -9.8; % gravity (m/s^2)
+L = 100; % length of pendulum string (m)
 
 lat = .7; % lattitude (approx for Provo) (equator is 0, poles are pi/2) (rad)
 theta = pi/2 - lat;

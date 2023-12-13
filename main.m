@@ -40,7 +40,7 @@ options = odeset('RelTol',1e-5);
 
 %time
 N = 2^14;
-total_time = 100000;
+total_time = 30000;
 dt = total_time/N;
 time = 0:dt:total_time;
 
@@ -90,8 +90,8 @@ grid on;
 for k = 1:length(t) % animation for the pendulum swinging
     figure(2)
     plot3([0,xe(k)],[0,ye(k)],[L,z(k)], xe(k),ye(k),z(k), 'square')
-    xlim([-2,2])
-    ylim([-2 2])
+    xlim([-1.5 1.5])
+    ylim([-1.5 1.5])
     zlim([0 100])
     xlabel("X")
     ylabel("Y")

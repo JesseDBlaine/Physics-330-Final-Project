@@ -1,11 +1,10 @@
 function F = focP(t,u)
 %Results array
 
-L = 1;%Length Pendulum
-g = 9.8;
-omega = 1; %Natural Frequency
-
-theta = 30; %degrees from North Pole
+global g;
+global L;
+global omega; % Natural Frequency
+global theta; % degrees from North Pole
 
 F = zeros(length(u),1);
 
